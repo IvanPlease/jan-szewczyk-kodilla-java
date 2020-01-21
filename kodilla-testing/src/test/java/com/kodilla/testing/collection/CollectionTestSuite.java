@@ -15,6 +15,7 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorEmptyList(){
+        //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> EmptyList = new ArrayList<>();
         EmptyList.add(7);
@@ -25,16 +26,16 @@ public class CollectionTestSuite {
         EmptyList.add(2);
         EmptyList.add(6);
         EmptyList.add(15);
+        //When
         EmptyList = oddNumbersExterminator.exterminate(EmptyList);
-        if(EmptyList.size()>0){
-            System.out.println("Lista nie jest pusta");
-        }else{
-            System.out.println("Lista jest pusta");
-        }
+        //Then
+        Assert.assertEquals(3, EmptyList.size());
+
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList (){
+        //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> NormalList = new ArrayList<>();
         NormalList.add(7);
@@ -45,6 +46,7 @@ public class CollectionTestSuite {
         NormalList.add(2);
         NormalList.add(6);
         NormalList.add(15);
+        //When
         NormalList = oddNumbersExterminator.exterminate(NormalList);
         boolean odd = false;
         boolean even = false;
@@ -55,13 +57,12 @@ public class CollectionTestSuite {
                 odd = true;
             }
             if(even && odd){
-                System.out.println("Lista posiada liczby parzyste i nieparzyste");
                 break;
             }
         }
-        if(!odd || !even){
-            System.out.println("Lista nie posiada liczb parzystych lub nieparzystych");
-        }
+        //Then
+        Assert.assertTrue(even && odd);
+
     }
 
 }

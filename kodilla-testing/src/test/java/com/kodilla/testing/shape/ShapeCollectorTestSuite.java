@@ -23,21 +23,25 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void testAddingFigure(){
+        //Given
         ShapeCollector shapeCollector = new ShapeCollector();
 
         Shape square = new Square(5);
         Shape triangle = new Triangle(3,5);
         Shape circle = new Circle(18);
 
+        //When
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(circle);
 
+        //Then
         Assert.assertEquals(triangle, shapeCollector.getFigure(1));
     }
 
     @Test
     public void testRemoveFigure(){
+        //Given
         ShapeCollector shapeCollector = new ShapeCollector();
 
         Shape square = new Square(5);
@@ -48,39 +52,47 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(circle);
 
+        //When
         shapeCollector.removeFigure(triangle);
+        //Then
 
         Assert.assertEquals(circle, shapeCollector.getFigure(1));
     }
 
     @Test
     public void testGetFigure(){
+        //Given
         ShapeCollector shapeCollector = new ShapeCollector();
 
         Shape square = new Square(5);
         Shape triangle = new Triangle(3,5);
         Shape circle = new Circle(18);
-
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(circle);
-
-        Assert.assertEquals(triangle, shapeCollector.getFigure(1));
+        //When
+        Shape figure = shapeCollector.getFigure(1);
+        //Then
+        Assert.assertEquals(triangle, figure);
     }
 
     @Test
     public void testShowFigures(){
+        //Given
         ShapeCollector shapeCollector = new ShapeCollector();
 
         Shape square = new Square(5);
         Shape triangle = new Triangle(3,5);
         Shape circle = new Circle(18);
-
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(circle);
 
-        Assert.assertEquals("Triangle o polu 7.5", shapeCollector.showFigures(shapeCollector.getFigure(1)));
+        //When
+        String figure = shapeCollector.showFigures(shapeCollector.getFigure(1));
+
+        //Then
+        Assert.assertEquals("Triangle o polu 7.5", figure);
 
     }
 
