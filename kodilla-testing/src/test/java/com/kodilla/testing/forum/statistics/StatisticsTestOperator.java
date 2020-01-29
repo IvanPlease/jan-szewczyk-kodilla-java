@@ -111,11 +111,6 @@ public class StatisticsTestOperator {
     @Test
     public void testCalculateStatisticsWhenUserCountIsHundred(){
         //Given
-        List<String> users = new ArrayList<>();
-        for(int i=0;i<100;i++){
-            users.add("User"+i);
-        }
-        when(statistics.usersNames()).thenReturn(users);
         //When
         statisticsOperator.calculateAdvStatistics(statistics);
         //Then
