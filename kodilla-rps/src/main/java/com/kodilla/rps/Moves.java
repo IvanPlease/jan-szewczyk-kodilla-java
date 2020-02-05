@@ -1,15 +1,32 @@
 package com.kodilla.rps;
 
-public class Moves{
-    enum Move{
-        PAPIER(0),
-        KAMIEN(1),
-        NOZYCZKI(2);
+import java.util.HashMap;
+import java.util.Map;
 
-        private final int value;
+public enum Moves{
+    PAPIER(0),
+    KAMIEN(1),
+    NOZYCZKI(2);
 
-        Move(final int newValue) {
-            value = ordinal();
+    private int value;
+    private static Map map = new HashMap<>();
+
+    Moves(int newValue) {
+        this.value = newValue;
+    }
+
+    static {
+        for (Moves pageType : Moves.values()) {
+            map.put(pageType.value, pageType);
         }
     }
+
+    public static Moves valueOf(int pageType) {
+        return (Moves) map.get(pageType);
+    }
+
+    public int getValue() {
+        return value;
+    }
+
 }

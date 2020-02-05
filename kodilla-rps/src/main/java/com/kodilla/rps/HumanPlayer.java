@@ -11,7 +11,7 @@ public class HumanPlayer extends Player {
     @Override
     public int getMove() {
         int move = IOController.getMove();
-        moveInfo(this.getName(), Moves.Move.values()[move-1]);
+        moveInfo(this.getName(), Moves.valueOf(move-1));
         return move;
     }
 

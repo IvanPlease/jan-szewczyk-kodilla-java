@@ -66,7 +66,7 @@ public class IOController {
         System.out.println(p1.getName() + ": " + p1.getPoints() + " punktów, " + p2.getName() + ": " + p2.getPoints() + " puntków");
     }
 
-    public static void moveInfo(String name, Moves.Move value) {
+    public static void moveInfo(String name, Moves value) {
         System.out.println(name + " wybrał " + value);
     }
 
