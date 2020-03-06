@@ -3,18 +3,18 @@ package com.kodilla.good.patterns.challenges;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RentService {
+public class ShopService {
 
     private Map<String, ItemInformation> products;
 
-    public RentService() {
+    public ShopService() {
         this.products = new HashMap<>();
     }
 
-    public void createRentRequest(String itemName, User user){
+    public void createShopRequest(String itemName, User user){
 
         ItemInformation item = products.get(itemName);
-        if (!RentalStatus.status(item)) {
+        if (!ShopStatus.status(item)) {
             if(user.isInGoodTerm()){
                 user.addOrders(item);
                 int i = user.getUnPaidOrders();

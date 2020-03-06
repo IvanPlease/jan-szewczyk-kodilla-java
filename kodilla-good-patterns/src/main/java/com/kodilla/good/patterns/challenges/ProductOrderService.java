@@ -16,28 +16,28 @@ public class ProductOrderService {
 
     public static void main(String[] args) {
         User user1 = new User(userName);
-        RentService rentService = new RentService();
-        addProducts(rentService);
-        rentService.createRentRequest(cH, user1);
-        rentService.createRentRequest(a, user1);
-        rentService.createRentRequest(gF, user1);
-        rentService.createRentRequest(iM, user1);
-        rentService.createRentRequest(p, user1);
-        rentService.createRentRequest(r2, user1);
-        rentService.createRentRequest(gV, user1);
-        rentService.payForProduct(p, user1);
-        rentService.payForProduct(gV, user1);
-        rentService.createRentRequest(r2, user1);
-        rentService.createRentRequest(gV, user1);
+        ShopService shopService = new ShopService();
+        addProducts(shopService);
+        shopService.createShopRequest(cH, user1);
+        shopService.createShopRequest(a, user1);
+        shopService.createShopRequest(gF, user1);
+        shopService.createShopRequest(iM, user1);
+        shopService.createShopRequest(p, user1);
+        shopService.createShopRequest(r2, user1);
+        shopService.createShopRequest(gV, user1);
+        shopService.payForProduct(p, user1);
+        shopService.payForProduct(gV, user1);
+        shopService.createShopRequest(r2, user1);
+        shopService.createShopRequest(gV, user1);
     }
 
-    public static void addProducts(RentService rentService){
-        rentService.addProduct(cH, new ItemInformation(movieCat, cH, false, false));
-        rentService.addProduct(a, new ItemInformation(movieCat, a, false, false));
-        rentService.addProduct(gF, new ItemInformation(movieCat, iM, false, false));
-        rentService.addProduct(p, new ItemInformation(hardwareCat, p, false, false));
-        rentService.addProduct(r2, new ItemInformation(gameCat, r2, false, false));
-        rentService.addProduct(gV, new ItemInformation(gameCat, gV, false, false));
+    public static void addProducts(ShopService shopService){
+        shopService.addProduct(cH, new ItemInformation(movieCat, cH, false, false));
+        shopService.addProduct(a, new ItemInformation(movieCat, a, false, false));
+        shopService.addProduct(gF, new ItemInformation(movieCat, iM, false, false));
+        shopService.addProduct(p, new ItemInformation(hardwareCat, p, false, false));
+        shopService.addProduct(r2, new ItemInformation(gameCat, r2, false, false));
+        shopService.addProduct(gV, new ItemInformation(gameCat, gV, false, false));
     }
 
 }
