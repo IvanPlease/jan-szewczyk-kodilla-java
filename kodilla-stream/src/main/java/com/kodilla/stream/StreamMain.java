@@ -119,15 +119,9 @@ public class StreamMain {
 
         forum.getUserList().stream()
                 .filter(u -> u.getSex() == 'M')
-                .map(ForumUser::toString)
-                .forEach(System.out::println);
-
-        forum.getUserList().stream()
                 .filter(u -> u.getAge() > 20)
-                .forEach(System.out::println);
-
-        forum.getUserList().stream()
                 .filter(u -> u.getPostsCount() > 1)
+                .map(ForumUser::toString)
                 .forEach(System.out::println);
 
         Map<Integer, ForumUser> par = forum.getUserList().stream()
