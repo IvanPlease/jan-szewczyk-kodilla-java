@@ -56,4 +56,8 @@ public class LibraryUser {
         result = 31 * result + peselId.hashCode();
         return result;
     }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 }
