@@ -1,37 +1,21 @@
 package com.kodilla.spring.portfolio;
 
-import com.kodilla.spring.reader.Book;
-import com.kodilla.spring.reader.Reader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+@Configuration
 public class BoardConfig {
-    @Autowired
-    @Qualifier("book1")
-    Book book;
 
     @Bean
-    public Reader getReader() {
-        return new Reader(book);
+    public Board getBoard() {
+        return new Board(getTaskList(), getTaskList(), getTaskList());
     }
 
-    @Bean(name = "taskToDo")
+    @Bean
     @Scope("prototype")
-    public Book getToDoTask() {
-        return new Book("The book number one");
+    public TaskList getTaskList(){
+        return new TaskList();
     }
 
-    @Bean(name = "taskInProgress")
-    @Scope("prototype")
-    public Book getTasksInProgress() {
-        return new Book("The book number two");
-    }
-
-    @Bean(name = "doneList")
-    @Scope("prototype")
-    public Book getDoneList() {
-        return new Book("The book number three");
-    }
 }
