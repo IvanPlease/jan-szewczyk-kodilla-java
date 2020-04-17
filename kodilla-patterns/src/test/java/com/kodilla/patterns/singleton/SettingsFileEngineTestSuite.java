@@ -49,10 +49,9 @@ public class SettingsFileEngineTestSuite {
     public void testGetLastLog(){
         //Given
         String desire = "Test #1";
-        String lastLog;
         Logger.getInstance().log("Test #1");
         //When
-        lastLog = Logger.getInstance().getLastLog();
+        String lastLog = Logger.getInstance().getLastLog();
         //Then
         Assert.assertEquals(desire, lastLog);
     }
