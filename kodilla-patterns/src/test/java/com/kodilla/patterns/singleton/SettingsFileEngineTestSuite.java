@@ -7,11 +7,9 @@ import org.junit.Test;
 
 
 public class SettingsFileEngineTestSuite {
-    private static Logger logger;
     @BeforeClass
     public static void openSettingsFile() {
         SettingsFileEngine.getInstance().open("myapp.settings");
-        logger = new Logger();
     }
 
     @AfterClass
@@ -52,9 +50,9 @@ public class SettingsFileEngineTestSuite {
         //Given
         String desire = "Test #1";
         String lastLog;
-        logger.log("Test #1");
+        Logger.getInstance().log("Test #1");
         //When
-        lastLog = logger.getLastLog();
+        lastLog = Logger.getInstance().getLastLog();
         //Then
         Assert.assertEquals(desire, lastLog);
     }
