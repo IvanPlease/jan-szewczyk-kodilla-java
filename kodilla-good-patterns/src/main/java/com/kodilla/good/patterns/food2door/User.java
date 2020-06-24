@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.food2door;
 
-public final class UserDTO {
+public final class User {
 
     private final String name;
     private final String address;
@@ -10,7 +10,7 @@ public final class UserDTO {
         return email;
     }
 
-    public UserDTO(String name, String address, String email) {
+    public User(String name, String address, String email) {
         this.name = name;
         this.address = address;
         this.email = email;

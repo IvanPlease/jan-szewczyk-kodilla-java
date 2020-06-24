@@ -1,21 +1,17 @@
 package com.kodilla.good.patterns.food2door;
 
-import java.util.Map;
-
-public class ProducentDTO {
+public class Drivers {
 
     private final String name;
     private final String address;
     private final String email;
+    private boolean available;
 
-    public ProducentDTO(String name, String address, String email) {
+    public Drivers(String name, String address, String email, boolean available) {
         this.name = name;
         this.address = address;
         this.email = email;
-    }
-
-    public void process(){
-
+        this.available = available;
     }
 
     public String getName() {
@@ -24,6 +20,14 @@ public class ProducentDTO {
 
     public String getAddress() {
         return address;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     public String getEmail() {
