@@ -1,10 +1,18 @@
 package com.kodilla.hibernate.manytomany;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyWithFirstLetters",
+                query = "SELECT * FROM companies WHERE LEFT(company_name, 3) = :FIRSTLETTERS",
+                resultClass = Company.class
+        )
+})
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
