@@ -11,6 +11,11 @@ import java.util.List;
                 name = "Company.retrieveCompanyWithFirstLetters",
                 query = "SELECT * FROM companies WHERE LEFT(company_name, 3) = :FIRSTLETTERS",
                 resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyWithLettersInName",
+                query = "SELECT * FROM companies WHERE company_name LIKE CONCAT('%',:SEARCH_TERM,'%')",
+                resultClass = Company.class
         )
 })
 @Entity

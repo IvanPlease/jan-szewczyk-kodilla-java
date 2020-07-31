@@ -14,4 +14,6 @@ import java.util.List;
 public interface EmployeesRepository extends CrudRepository<Employee, Integer> {
     @Query
     List<Employee> retrieveEmployeeWithSurname(@Param("SURNAME") String surname);
+    @Query
+    List<Employee> retrieveEmployeeWithLettersInSurname(@Param("SEARCH_TERM") String searchTerm);
 }
