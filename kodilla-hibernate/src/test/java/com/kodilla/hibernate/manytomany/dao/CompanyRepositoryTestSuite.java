@@ -1,7 +1,6 @@
 package com.kodilla.hibernate.manytomany.dao;
 
-import com.kodilla.hibernate.manytomany.Company;
-import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.repository.CompanyRepository;
 import com.kodilla.hibernate.manytomany.repository.EmployeesRepository;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,10 +15,10 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class CompanyDaoTestSuite {
+public class CompanyRepositoryTestSuite {
 
     @Autowired
-    private CompanyDao companyDao;
+    private CompanyRepository companyRepository;
     @Autowired
     private EmployeesRepository employeesRepository;
 
@@ -47,11 +46,11 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(greyMatter);
 
         //When
-        companyDao.save(softwareMachine);
+        companyRepository.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
-        companyDao.save(dataMaesters);
+        companyRepository.save(dataMaesters);
         int dataMaestersId = dataMaesters.getId();
-        companyDao.save(greyMatter);
+        companyRepository.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
         //Then
@@ -61,9 +60,9 @@ public class CompanyDaoTestSuite {
 
         //CleanUp
         try {
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMaestersId);
-            companyDao.deleteById(greyMatterId);
+            companyRepository.deleteById(softwareMachineId);
+            companyRepository.deleteById(dataMaestersId);
+            companyRepository.deleteById(greyMatterId);
         } catch (Exception e) {
             //do nothing
         }
@@ -81,20 +80,20 @@ public class CompanyDaoTestSuite {
         Employee sEmployee1 = employeesRepository.save(johnSmith);
         Employee sEmployee2 = employeesRepository.save(stephanieClarckson);
         Employee sEmployee3 = employeesRepository.save(lindaKovalsky);
-        Company sCompany1 = companyDao.save(company);
-        Company sCompany2 = companyDao.save(company1);
-        Company sCompany3 = companyDao.save(company2);
+        Company sCompany1 = companyRepository.save(company);
+        Company sCompany2 = companyRepository.save(company1);
+        Company sCompany3 = companyRepository.save(company2);
         //When
         List<Employee> employeesList = employeesRepository.retrieveEmployeeWithSurname("Smith");
-        List<Company> companiesList = companyDao.retrieveCompanyWithFirstLetters("Tes");
+        List<Company> companiesList = companyRepository.retrieveCompanyWithFirstLetters("Tes");
         //Then
         Assert.assertEquals(5, employeesList.size());
         Assert.assertEquals(15, companiesList.size());
         //Cleanup
         try{
-            companyDao.deleteById(sCompany1.getId());
-            companyDao.deleteById(sCompany2.getId());
-            companyDao.deleteById(sCompany3.getId());
+            companyRepository.deleteById(sCompany1.getId());
+            companyRepository.deleteById(sCompany2.getId());
+            companyRepository.deleteById(sCompany3.getId());
             employeesRepository.deleteById(sEmployee1.getId());
             employeesRepository.deleteById(sEmployee2.getId());
             employeesRepository.deleteById(sEmployee3.getId());

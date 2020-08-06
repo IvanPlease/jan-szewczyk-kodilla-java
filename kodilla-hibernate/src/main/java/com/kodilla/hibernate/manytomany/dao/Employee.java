@@ -1,4 +1,6 @@
-package com.kodilla.hibernate.manytomany;
+package com.kodilla.hibernate.manytomany.dao;
+
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,6 +22,7 @@ import java.util.List;
         )
 })
 @Entity
+@Setter
 @Table(name = "EMPLOYEES")
 public class Employee {
     private int id;
@@ -55,18 +58,6 @@ public class Employee {
         return lastname;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    private void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLAYEE",
@@ -75,9 +66,5 @@ public class Employee {
     )
     public List<Company> getCompanies() {
         return companies;
-    }
-
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
     }
 }

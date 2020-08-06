@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.manytomany.repository;
 
-import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.dao.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

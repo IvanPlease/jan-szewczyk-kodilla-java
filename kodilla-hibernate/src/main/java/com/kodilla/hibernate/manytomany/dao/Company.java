@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.manytomany;
+package com.kodilla.hibernate.manytomany.dao;
 
 
 import javax.persistence.*;
