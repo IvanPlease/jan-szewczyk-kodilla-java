@@ -29,4 +29,8 @@ public class DbManager {
     public Connection getConnection() {
         return conn;
     }
+
+    public void closeConnection() throws SQLException {
+        conn.close();
+    }
 }

@@ -1,11 +1,14 @@
 package com.kodilla.jdbc;
 
-import org.junit.Assert;
+
 import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class DbManagerTestSuite {
     @Test
@@ -14,7 +17,7 @@ public class DbManagerTestSuite {
         //When
         DbManager dbManager = DbManager.getInstance();
         //Then
-        Assert.assertNotNull(dbManager.getConnection());
+        assertNotNull(dbManager.getConnection());
     }
 
     @Test
@@ -37,7 +40,7 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(5, counter);
+        assertEquals(5, counter);
     }
     @Test
     public void testSelectUsersAndPosts() throws SQLException {
@@ -58,6 +61,6 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(2, counter);
+        assertEquals(2, counter);
     }
 }
