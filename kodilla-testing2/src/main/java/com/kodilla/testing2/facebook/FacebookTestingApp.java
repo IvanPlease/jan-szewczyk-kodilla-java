@@ -12,7 +12,7 @@ public class FacebookTestingApp {
     public static final String XPATH_PHONE_MAIL = "//input[contains(@name, \"reg_email__\")]";
     public static final String XPATH_PASSWORD = "//input[contains(@name, \"reg_passwd__\")]";
     public static final String XPATH_SELECT = "//select[%d]";
-    public static final String XPATH_RADIO = "//input[contains(@name, \"sex\")][%d]";
+    public static final String XPATH_RADIO = "//input[contains(@name, \"sex\")][contains(@value, %d)]";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME_INCOGNITO);
@@ -42,7 +42,7 @@ public class FacebookTestingApp {
         Select yearSelect = new Select(yearSelectField);
         yearSelect.selectByValue("1999");
 
-        WebElement sexRadioField = driver.findElement(By.xpath(String.format(XPATH_RADIO, 1)));
+        WebElement sexRadioField = driver.findElement(By.xpath(String.format(XPATH_RADIO, 2)));
         sexRadioField.click();
     }
 }

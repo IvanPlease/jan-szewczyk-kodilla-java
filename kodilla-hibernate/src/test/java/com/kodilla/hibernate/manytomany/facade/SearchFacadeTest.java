@@ -30,7 +30,7 @@ public class SearchFacadeTest {
         //When
         int sizeOfCompanies = fetchedCompanies.size();
         //Then
-        Assert.assertEquals(18, sizeOfCompanies);
+        Assert.assertEquals(30, sizeOfCompanies);
     }
     @Test
     public void retrieveEmployeesWithStringInName(){
@@ -39,6 +39,6 @@ public class SearchFacadeTest {
         //When
         int sizeOfEmployees = fetchedEmployees.size();
         //Then
-        Assert.assertEquals(6, sizeOfEmployees);
+        Assert.assertEquals(10, sizeOfEmployees);
     }
 }

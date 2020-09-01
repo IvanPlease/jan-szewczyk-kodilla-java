@@ -87,8 +87,8 @@ public class CompanyRepositoryTestSuite {
         List<Employee> employeesList = employeesRepository.retrieveEmployeeWithSurname("Smith");
         List<Company> companiesList = companyRepository.retrieveCompanyWithFirstLetters("Tes");
         //Then
-        Assert.assertEquals(5, employeesList.size());
-        Assert.assertEquals(15, companiesList.size());
+        Assert.assertEquals(11, employeesList.size());
+        Assert.assertEquals(33, companiesList.size());
         //Cleanup
         try{
             companyRepository.deleteById(sCompany1.getId());
@@ -97,6 +97,8 @@ public class CompanyRepositoryTestSuite {
             employeesRepository.deleteById(sEmployee1.getId());
             employeesRepository.deleteById(sEmployee2.getId());
             employeesRepository.deleteById(sEmployee3.getId());
+            companyRepository.deleteAll();
+            employeesRepository.deleteAll();
         }catch (Exception e){
             e.printStackTrace();
         }
